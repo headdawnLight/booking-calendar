@@ -10,8 +10,8 @@ registerLocale("tr", tr);
 
 const App = () => {
   const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(null);
-  const [minDate, setMinDate] = useState(startDate);
+  const [endDate] = useState(null);
+  const [minDate] = useState(startDate);
   const [monthsShown, setMonthsShown] = useState(1);
 
   const booked = [new Date("2022-11-21")];
