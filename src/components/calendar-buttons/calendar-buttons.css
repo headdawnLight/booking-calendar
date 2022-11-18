@@ -1,0 +1,11 @@
+.btn {
+  margin: 10px 0;
+  padding: 0 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0.3rem;
+}
+
+.btn:first-child {
+  margin-right: 185px;
+}

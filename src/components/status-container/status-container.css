@@ -1,0 +1,38 @@
+.status-container {
+  display: flex;
+}
+
+.status-container span {
+  font-size: 14px;
+  margin-left: 40px;
+}
+
+.status-container span:first-child {
+  margin-left: 16px;
+}
+
+.status-container span::before {
+  content: "";
+  display: block;
+  position: relative;
+  top: 15px;
+  right: 15px;
+  width: 10px;
+  height: 10px;
+}
+
+#available::before {
+  background-color: gray;
+}
+
+#booked::before {
+  background-color: red;
+}
+
+#pending::before {
+  background-color: orange;
+}
+
+#check::before {
+  background-color: green;
+}

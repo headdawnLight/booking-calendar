@@ -1,0 +1,38 @@
+.app {
+  margin-left: 50px;
+}
+
+.app h1 {
+  margin: 10px 0;
+}
+
+.react-datepicker {
+  border: 1px solid #eee !important;
+}
+
+.react-datepicker__header {
+  border-bottom: none !important;
+  background-color: #fff !important;
+}
+
+.react-datepicker__day-name {
+  color: red !important;
+}
+
+.react-datepicker__day--excluded {
+  border-radius: 0.3rem !important;
+  background-color: red !important;
+  color: #fff !important;
+}
+
+.react-datepicker__day--highlighted-custom-1 {
+  border-radius: 0.3rem !important;
+  background-color: green !important;
+  color: #fff !important;
+}
+
+.react-datepicker__day--highlighted-custom-2 {
+  border-radius: 0.3rem !important;
+  background-color: orange !important;
+  color: #fff !important;
+}
