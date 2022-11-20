@@ -9,9 +9,9 @@ import tr from "date-fns/locale/tr";
 registerLocale("tr", tr);
 
 const App = () => {
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate] = useState(null);
   const [monthsShown, setMonthsShown] = useState(1);
-  const [dateRange, setDateRange] = useState([null, null]);
-  const [startDate, endDate] = dateRange;
 
   const booked = [new Date("2022-11-21")];
   const checked = [new Date("2022-11-25")];
@@ -46,10 +46,8 @@ const App = () => {
         <DatePicker
           inline
           locale={"tr"}
-          onChange={(update) => {
-            setDateRange(update);
-          }}
-          selectsRange={true}
+          onChange={(date) => setStartDate(date)}
+          selected={startDate}
           startDate={startDate}
           endDate={endDate}
           minDate={new Date()}
