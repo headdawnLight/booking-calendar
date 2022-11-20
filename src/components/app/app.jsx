@@ -9,23 +9,25 @@ import tr from "date-fns/locale/tr";
 registerLocale("tr", tr);
 
 const App = () => {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate] = useState(null);
-  const [minDate] = useState(startDate);
   const [monthsShown, setMonthsShown] = useState(1);
+  const [dateRange, setDateRange] = useState([null, null]);
+  const [startDate, endDate] = dateRange;
 
   const booked = [new Date("2022-11-21")];
-  const pendingPayment = [new Date("2022-11-22")];
   const checked = [new Date("2022-11-25")];
+  const pendingPayment = [new Date("2022-11-22"), new Date("2022-11-23")];
 
-  const excludeDates = [...booked, ...pendingPayment];
+  const excludeDates = [...booked, ...checked, ...pendingPayment];
 
   const highlightWithRanges = [
     {
-      "react-datepicker__day--highlighted-custom-1": [...checked],
+      "react-datepicker__day--highlighted-custom-1": [...booked],
     },
     {
-      "react-datepicker__day--highlighted-custom-2": [...pendingPayment],
+      "react-datepicker__day--highlighted-custom-2": [...checked],
+    },
+    {
+      "react-datepicker__day--highlighted-custom-3": [...pendingPayment],
     },
   ];
 
@@ -35,16 +37,22 @@ const App = () => {
 
       <div className="calendar-container">
         <StatusContainer />
-        <CalendarButtons setMonthsShown={setMonthsShown} />
+
+        <CalendarButtons
+          monthsShown={monthsShown}
+          setMonthsShown={setMonthsShown}
+        />
 
         <DatePicker
           inline
           locale={"tr"}
-          onChange={(date) => setStartDate(date)}
-          selected={startDate}
+          onChange={(update) => {
+            setDateRange(update);
+          }}
+          selectsRange={true}
           startDate={startDate}
           endDate={endDate}
-          minDate={minDate}
+          minDate={new Date()}
           maxDate={addMonths(new Date(), 11)}
           monthsShown={monthsShown}
           excludeDates={excludeDates}
