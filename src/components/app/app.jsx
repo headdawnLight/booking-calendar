@@ -10,7 +10,7 @@ registerLocale("tr", tr);
 
 const App = () => {
   const [startDate, setStartDate] = useState(new Date());
-  const [endDate] = useState(null);
+  const [endDate, setEndDate] = useState(new Date());
   const [monthsShown, setMonthsShown] = useState(1);
 
   const booked = [new Date("2022-11-21")];
@@ -38,24 +38,47 @@ const App = () => {
       <div className="calendar-container">
         <StatusContainer />
 
-        <CalendarButtons
-          monthsShown={monthsShown}
-          setMonthsShown={setMonthsShown}
-        />
+        <CalendarButtons setMonthsShown={setMonthsShown} />
 
-        <DatePicker
-          inline
-          locale={"tr"}
-          onChange={(date) => setStartDate(date)}
-          selected={startDate}
-          startDate={startDate}
-          endDate={endDate}
-          minDate={new Date()}
-          maxDate={addMonths(new Date(), 11)}
-          monthsShown={monthsShown}
-          excludeDates={excludeDates}
-          highlightDates={highlightWithRanges}
-        />
+        <div className="date-picker-container">
+          <div className="start-date-container">
+            <span>giriş tarihi: </span>
+
+            <DatePicker
+              locale={"tr"}
+              selectsStart
+              onChange={(date) => setStartDate(date)}
+              selected={startDate}
+              startDate={startDate}
+              endDate={endDate}
+              minDate={new Date()}
+              maxDate={addMonths(new Date(), 11)}
+              monthsShown={monthsShown}
+              excludeDates={excludeDates}
+              highlightDates={highlightWithRanges}
+              shouldCloseOnSelect={false}
+            />
+          </div>
+
+          <div className="end-date-container">
+            <span>çıkış tarihi: </span>
+
+            <DatePicker
+              locale={"tr"}
+              selectsEnd
+              onChange={(date) => setEndDate(date)}
+              selected={endDate}
+              startDate={startDate}
+              endDate={endDate}
+              minDate={new Date()}
+              maxDate={addMonths(new Date(), 11)}
+              monthsShown={monthsShown}
+              excludeDates={excludeDates}
+              highlightDates={highlightWithRanges}
+              shouldCloseOnSelect={false}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

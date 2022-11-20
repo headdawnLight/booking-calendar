@@ -7,10 +7,27 @@
   margin: 10px 0;
 }
 
+.date-picker-container {
+  display: flex;
+}
+
+.start-date-container {
+  margin-right: 10px;
+}
+
+.react-datepicker-wrapper {
+  width: auto !important;
+}
+
+.react-datepicker__input-container input {
+  width: 75px;
+}
+
 .react-datepicker {
   border: none !important;
   max-width: 755px;
 }
+
 .react-datepicker__header {
   border-bottom: none !important;
   background-color: #fff !important;
@@ -21,6 +38,7 @@
 }
 
 .react-datepicker__month-container {
+  height: 260px;
   border-top: 1px solid #aeaeae !important;
   border-right: 1px solid #aeaeae !important;
 }
